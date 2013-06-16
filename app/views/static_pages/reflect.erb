@@ -3,6 +3,10 @@
 
 <h3> Select the best of the aggregated content and collaborate to create 3 stories about their experience </h3>
 
+<div class="row">
+<div class="span5">
+<%= render 'shared/feed' %>
+
 <% keywords = ["#architect_frem01", "#hacktivateed"] %>
 
 <% keywords.each do |keyword| %>
@@ -26,3 +30,10 @@
 		<% end %>
 	</ol>
 <% end %>
+</div>
+
+<div class="span7">
+Now write!
+<%= render 'shared/micropost_form' %>
+</div>
+</div>
