@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		#TODO@microposts = @user.microposts.paginate(page: params[:page])
+		@microposts = @user.microposts.paginate(page: params[:page])
 	end
 
 	def index
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 		@user = User.new(params[:user])
 		if @user.save
 			sign_in @user
-			flash[:success] = "Welcome to the Online Learning Platform!"
+			flash[:success] = "Welcome to the TripTagg!"
 			redirect_to @user
 		else
 			render 'new'
