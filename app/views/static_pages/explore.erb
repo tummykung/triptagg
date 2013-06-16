@@ -1,11 +1,16 @@
 <% provide(:title, '2. Explore') %>
 <h1>Explore</h1>
 
-<ul>
-<li>Upload:
-	<ul>
-		<li> Photos </li>
-		<li> Videos </li>
-	</ul>
-</li>
-</ul>
+<div align="center">
+	<p class="span2">
+	<h2>Upload Photos </h2>
+	<%= link_to image_tag("image.png"), "http://postimage.org/" %>
+	</p>
+	<hr>
+	<p class="span2">
+	<h2>Upload Videos or Audios </h2>
+	<%= link_to image_tag("youtube.png"), "http://www.youtube.com/my_videos_upload" %>
+	<br>
+	(<em>hint:</em> if you don't want your video to be listed on youtube, you can select the private upload option. In this way, only people who has the link that you provide can see your video.)
+	</p>
+</div>
