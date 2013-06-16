@@ -1,2 +1,26 @@
 <% provide(:title, '3. Reflect') %>
 <h1>Reflect</h1>
+
+
+<% keywords = ["#hacktivateed", "#architect_frem01 "] %>
+
+<% keywords.each do |keyword| %>
+	<ol class="microposts">
+		<h2> Results for: <%= keyword %> </h2>
+		
+		<% all_feed_items = Twitter.search(keyword, :count => 5, :result_type => "recent").results %>
+		<% all_feed_items.each do |status| %>
+			<li>
+				<span class="user">
+					<%= status.user.name %> 
+				</span>
+				<span class="content"> 
+					<%= status.text %>
+				</span>
+				<span class="timestamp">
+					Posted <%= time_ago_in_words(status.created_at) %> ago.
+				</span>
+			</li>
+		<% end %>
+	</ol>
+<% end %>
