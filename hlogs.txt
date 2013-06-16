@@ -1,101 +1,102 @@
-2013-06-16T00:21:03.491362+00:00 app[web.1]:   Rendered layouts/_header.html.erb (3.8ms)
-2013-06-16T00:21:03.492205+00:00 app[web.1]: Completed 200 OK in 78ms (Views: 76.1ms | ActiveRecord: 1.3ms)
-2013-06-16T00:21:03.518142+00:00 heroku[router]: at=info method=GET path=/signin host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=2ms service=114ms status=200 bytes=2075
-2013-06-16T00:21:03.491965+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.4ms)
-2013-06-16T00:21:05.764934+00:00 heroku[router]: at=info method=GET path=/signup host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=1ms service=31ms status=200 bytes=2353
-2013-06-16T00:21:05.756913+00:00 app[web.1]:   Rendered shared/_error_messages.html.erb (0.5ms)
-2013-06-16T00:21:05.740219+00:00 app[web.1]: Started GET "/signup" for 69.12.169.82 at 2013-06-16 00:21:05 +0000
-2013-06-16T00:21:05.743134+00:00 app[web.1]: Processing by UsersController#new as HTML
-2013-06-16T00:21:05.760347+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.0ms)
-2013-06-16T00:21:05.763893+00:00 app[web.1]: Completed 200 OK in 21ms (Views: 10.7ms | ActiveRecord: 0.8ms)
-2013-06-16T00:21:05.759237+00:00 app[web.1]:   Rendered users/new.html.erb within layouts/application (5.3ms)
-2013-06-16T00:21:05.762976+00:00 app[web.1]:   Rendered layouts/_header.html.erb (2.4ms)
-2013-06-16T00:21:05.763522+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.4ms)
-2013-06-16T00:21:26.809703+00:00 app[web.1]: Processing by UsersController#create as HTML
-2013-06-16T00:21:26.809918+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"CSCqdyTjNs8xnyLZfrG7lnkP+esq98E6S3u5rQcDIl0=", "user"=>{"name"=>"Jorge Alvarez", "email"=>"triptragg@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
-2013-06-16T00:21:26.806100+00:00 app[web.1]: Started POST "/users" for 69.12.169.82 at 2013-06-16 00:21:26 +0000
-2013-06-16T00:21:27.016726+00:00 heroku[router]: at=info method=POST path=/users host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=2ms service=227ms status=302 bytes=103
-2013-06-16T00:21:27.014057+00:00 app[web.1]: Redirected to http://triptagg.herokuapp.com/users/1
-2013-06-16T00:21:27.014057+00:00 app[web.1]: Completed 302 Found in 204ms (ActiveRecord: 16.9ms)
-2013-06-16T00:21:27.200175+00:00 app[web.1]:   Parameters: {"id"=>"1"}
-2013-06-16T00:21:27.194654+00:00 app[web.1]: Started GET "/users/1" for 69.12.169.82 at 2013-06-16 00:21:27 +0000
-2013-06-16T00:21:27.200175+00:00 app[web.1]: Processing by UsersController#show as HTML
-2013-06-16T00:21:27.394255+00:00 app[web.1]: ActionView::Template::Error (PGError: ERROR:  relation "relationships" does not exist
-2013-06-16T00:21:27.392268+00:00 app[web.1]: Completed 500 Internal Server Error in 192ms
-2013-06-16T00:21:27.394255+00:00 app[web.1]:     3:   <a href="<%= following_user_path(@user) %>">
-2013-06-16T00:21:27.394255+00:00 app[web.1]:     6:     </strong>
-2013-06-16T00:21:27.394255+00:00 app[web.1]: LINE 1: SELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "...
-2013-06-16T00:21:27.394255+00:00 app[web.1]: : SELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = 1):
-2013-06-16T00:21:27.394255+00:00 app[web.1]:                                                 ^
-2013-06-16T00:21:27.394456+00:00 app[web.1]:     8:   </a>
-2013-06-16T00:21:27.394456+00:00 app[web.1]:     7:     following
-2013-06-16T00:21:27.394456+00:00 app[web.1]:   app/views/users/show.html.erb:11:in `_app_views_users_show_html_erb__2190553642411491523_48898540'
-2013-06-16T00:21:27.394255+00:00 app[web.1]:     2: <div class="stats">
-2013-06-16T00:21:27.394456+00:00 app[web.1]: 
-2013-06-16T00:21:27.392123+00:00 app[web.1]:   Rendered users/show.html.erb within layouts/application (77.4ms)
-2013-06-16T00:21:27.394255+00:00 app[web.1]: 
-2013-06-16T00:21:27.391830+00:00 app[web.1]:   Rendered shared/_stats.html.erb (76.0ms)
-2013-06-16T00:21:27.394255+00:00 app[web.1]:     5:       <%= @user.followed_users.count %>
-2013-06-16T00:21:27.394255+00:00 app[web.1]:     4:     <strong id="following" class="stat">
-2013-06-16T00:21:27.394456+00:00 app[web.1]:   app/views/shared/_stats.html.erb:5:in `_app_views_shared__stats_html_erb__1625596973826766865_48807420'
-2013-06-16T00:21:27.394456+00:00 app[web.1]: 
-2013-06-16T00:21:27.407780+00:00 heroku[router]: at=info method=GET path=/users/1 host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=8ms service=219ms status=500 bytes=643
-2013-06-16T00:21:27.611365+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=1ms service=8ms status=304 bytes=0
-2013-06-16T00:21:47.314492+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=1ms service=10ms status=304 bytes=0
-2013-06-16T00:21:49.454086+00:00 heroku[router]: at=info method=GET path=/ host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=3ms service=19ms status=500 bytes=643
-2013-06-16T00:21:49.452105+00:00 app[web.1]:              WHERE a.attrelid = '"microposts"'::regclass
-2013-06-16T00:21:49.452105+00:00 app[web.1]: LINE 5:              WHERE a.attrelid = '"microposts"'::regclass
-2013-06-16T00:21:49.441060+00:00 app[web.1]: Started GET "/" for 69.12.169.82 at 2013-06-16 00:21:49 +0000
-2013-06-16T00:21:49.452105+00:00 app[web.1]: 
-2013-06-16T00:21:49.452105+00:00 app[web.1]:                                         ^
-2013-06-16T00:21:49.452105+00:00 app[web.1]:                      pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
-2013-06-16T00:21:49.452105+00:00 app[web.1]:                 ON a.attrelid = d.adrelid AND a.attnum = d.adnum
-2013-06-16T00:21:49.452105+00:00 app[web.1]:                AND a.attnum > 0 AND NOT a.attisdropped
-2013-06-16T00:21:49.452105+00:00 app[web.1]: ActiveRecord::StatementInvalid (PGError: ERROR:  relation "microposts" does not exist
-2013-06-16T00:21:49.450314+00:00 app[web.1]: Completed 500 Internal Server Error in 5ms
-2013-06-16T00:21:49.445129+00:00 app[web.1]: Processing by StaticPagesController#home as HTML
-2013-06-16T00:21:49.452105+00:00 app[web.1]: :             SELECT a.attname, format_type(a.atttypid, a.atttypmod),
-2013-06-16T00:21:49.452105+00:00 app[web.1]:               FROM pg_attribute a LEFT JOIN pg_attrdef d
-2013-06-16T00:21:49.452295+00:00 app[web.1]: ):
-2013-06-16T00:21:49.452295+00:00 app[web.1]:              ORDER BY a.attnum
-2013-06-16T00:21:49.452295+00:00 app[web.1]:   app/controllers/static_pages_controller.rb:4:in `home'
-2013-06-16T00:21:49.452295+00:00 app[web.1]: 
-2013-06-16T00:21:49.452295+00:00 app[web.1]: 
-2013-06-16T00:21:51.688301+00:00 app[web.1]:               FROM pg_attribute a LEFT JOIN pg_attrdef d
-2013-06-16T00:21:51.677449+00:00 app[web.1]: Started GET "/" for 69.12.169.82 at 2013-06-16 00:21:51 +0000
-2013-06-16T00:21:51.688301+00:00 app[web.1]: ActiveRecord::StatementInvalid (PGError: ERROR:  relation "microposts" does not exist
-2013-06-16T00:21:51.688301+00:00 app[web.1]:              WHERE a.attrelid = '"microposts"'::regclass
-2013-06-16T00:21:51.680329+00:00 app[web.1]: Processing by StaticPagesController#home as HTML
-2013-06-16T00:21:51.688301+00:00 app[web.1]:                                         ^
-2013-06-16T00:21:51.689132+00:00 heroku[router]: at=info method=GET path=/ host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=1ms service=20ms status=500 bytes=643
-2013-06-16T00:21:51.688301+00:00 app[web.1]:                 ON a.attrelid = d.adrelid AND a.attnum = d.adnum
-2013-06-16T00:21:51.688301+00:00 app[web.1]:                      pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
-2013-06-16T00:21:51.688486+00:00 app[web.1]:              ORDER BY a.attnum
-2013-06-16T00:21:51.688486+00:00 app[web.1]: 
-2013-06-16T00:21:51.688301+00:00 app[web.1]: 
-2013-06-16T00:21:51.688301+00:00 app[web.1]: :             SELECT a.attname, format_type(a.atttypid, a.atttypmod),
-2013-06-16T00:21:51.685231+00:00 app[web.1]: Completed 500 Internal Server Error in 5ms
-2013-06-16T00:21:51.688301+00:00 app[web.1]: LINE 5:              WHERE a.attrelid = '"microposts"'::regclass
-2013-06-16T00:21:51.688301+00:00 app[web.1]:                AND a.attnum > 0 AND NOT a.attisdropped
-2013-06-16T00:21:51.688486+00:00 app[web.1]: ):
-2013-06-16T00:21:51.688486+00:00 app[web.1]:   app/controllers/static_pages_controller.rb:4:in `home'
-2013-06-16T00:21:51.688486+00:00 app[web.1]: 
-2013-06-16T00:21:53.624210+00:00 app[web.1]: Processing by StaticPagesController#home as HTML
-2013-06-16T00:21:53.621582+00:00 app[web.1]: Started GET "/" for 69.12.169.82 at 2013-06-16 00:21:53 +0000
-2013-06-16T00:21:53.726347+00:00 heroku[router]: at=info method=GET path=/ host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=1ms service=120ms status=500 bytes=643
-2013-06-16T00:21:53.716386+00:00 app[web.1]: Completed 500 Internal Server Error in 92ms
-2013-06-16T00:21:53.721759+00:00 app[web.1]: :             SELECT a.attname, format_type(a.atttypid, a.atttypmod),
-2013-06-16T00:21:53.721759+00:00 app[web.1]: 
-2013-06-16T00:21:53.721759+00:00 app[web.1]: LINE 5:              WHERE a.attrelid = '"microposts"'::regclass
-2013-06-16T00:21:53.721759+00:00 app[web.1]:                      pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
-2013-06-16T00:21:53.721759+00:00 app[web.1]: ActiveRecord::StatementInvalid (PGError: ERROR:  relation "microposts" does not exist
-2013-06-16T00:21:53.721759+00:00 app[web.1]:                                         ^
-2013-06-16T00:21:53.721759+00:00 app[web.1]:                 ON a.attrelid = d.adrelid AND a.attnum = d.adnum
-2013-06-16T00:21:53.721759+00:00 app[web.1]:               FROM pg_attribute a LEFT JOIN pg_attrdef d
-2013-06-16T00:21:53.722048+00:00 app[web.1]:              ORDER BY a.attnum
-2013-06-16T00:21:53.722048+00:00 app[web.1]: ):
-2013-06-16T00:21:53.722048+00:00 app[web.1]: 
-2013-06-16T00:21:53.721759+00:00 app[web.1]:              WHERE a.attrelid = '"microposts"'::regclass
-2013-06-16T00:21:53.722048+00:00 app[web.1]:   app/controllers/static_pages_controller.rb:4:in `home'
 2013-06-16T00:21:53.721759+00:00 app[web.1]:                AND a.attnum > 0 AND NOT a.attisdropped
 2013-06-16T00:21:53.722048+00:00 app[web.1]: 
+2013-06-16T00:27:36.970679+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=1ms service=12ms status=304 bytes=0
+2013-06-16T00:27:42.132566+00:00 app[web.1]: Started GET "/projects" for 69.12.169.82 at 2013-06-16 00:27:42 +0000
+2013-06-16T00:27:42.139259+00:00 app[web.1]: Processing by StaticPagesController#projects as HTML
+2013-06-16T00:27:42.153782+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.1ms)
+2013-06-16T00:27:42.144932+00:00 app[web.1]:   Rendered static_pages/projects.html.erb within layouts/application (0.5ms)
+2013-06-16T00:27:42.162936+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.4ms)
+2013-06-16T00:27:42.162419+00:00 app[web.1]:   Rendered layouts/_header.html.erb (8.4ms)
+2013-06-16T00:27:42.163152+00:00 app[web.1]: Completed 200 OK in 24ms (Views: 18.2ms | ActiveRecord: 5.3ms)
+2013-06-16T00:27:42.173074+00:00 heroku[router]: at=info method=GET path=/projects host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=1ms service=69ms status=200 bytes=2025
+2013-06-16T00:27:42.330525+00:00 heroku[router]: at=info method=GET path=/assets/application-d0b76fba7cc374d820029ae22be4dd22.js host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=1ms service=39ms status=304 bytes=0
+2013-06-16T00:27:42.379343+00:00 heroku[router]: at=info method=GET path=/assets/application-4688b026c98be21eda4ae4d3b325dc4e.css host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=15ms service=32ms status=304 bytes=0
+2013-06-16T00:27:44.009204+00:00 app[web.1]: Started GET "/" for 69.12.169.82 at 2013-06-16 00:27:44 +0000
+2013-06-16T00:27:44.014760+00:00 app[web.1]: Processing by StaticPagesController#home as HTML
+2013-06-16T00:27:44.048838+00:00 heroku[router]: at=info method=GET path=/ host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=1ms service=82ms status=500 bytes=643
+2013-06-16T00:27:44.048396+00:00 app[web.1]: Completed 500 Internal Server Error in 32ms
+2013-06-16T00:27:44.048396+00:00 app[web.1]:                      pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+2013-06-16T00:27:44.048625+00:00 app[web.1]: 
+2013-06-16T00:27:44.048396+00:00 app[web.1]: LINE 5:              WHERE a.attrelid = '"microposts"'::regclass
+2013-06-16T00:27:44.048396+00:00 app[web.1]:               FROM pg_attribute a LEFT JOIN pg_attrdef d
+2013-06-16T00:27:44.048396+00:00 app[web.1]:                 ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+2013-06-16T00:27:44.048396+00:00 app[web.1]: ActiveRecord::StatementInvalid (PGError: ERROR:  relation "microposts" does not exist
+2013-06-16T00:27:44.048396+00:00 app[web.1]:                                         ^
+2013-06-16T00:27:44.048396+00:00 app[web.1]:              WHERE a.attrelid = '"microposts"'::regclass
+2013-06-16T00:27:44.048625+00:00 app[web.1]: 
+2013-06-16T00:27:44.048396+00:00 app[web.1]: 
+2013-06-16T00:27:44.048396+00:00 app[web.1]: :             SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+2013-06-16T00:27:44.048625+00:00 app[web.1]:   app/controllers/static_pages_controller.rb:4:in `home'
+2013-06-16T00:27:44.048625+00:00 app[web.1]: ):
+2013-06-16T00:27:44.048625+00:00 app[web.1]:                AND a.attnum > 0 AND NOT a.attisdropped
+2013-06-16T00:27:44.048625+00:00 app[web.1]:              ORDER BY a.attnum
+2013-06-16T00:27:46.817741+00:00 app[web.1]: Started GET "/projects" for 69.12.169.82 at 2013-06-16 00:27:46 +0000
+2013-06-16T00:27:46.835488+00:00 app[web.1]: Processing by StaticPagesController#projects as HTML
+2013-06-16T00:27:46.855104+00:00 app[web.1]:   Rendered static_pages/projects.html.erb within layouts/application (0.1ms)
+2013-06-16T00:27:46.887050+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.1ms)
+2013-06-16T00:27:46.933100+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.4ms)
+2013-06-16T00:27:46.933289+00:00 app[web.1]: Completed 200 OK in 98ms (Views: 72.6ms | ActiveRecord: 25.0ms)
+2013-06-16T00:27:46.952651+00:00 heroku[router]: at=info method=GET path=/projects host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=1ms service=159ms status=304 bytes=0
+2013-06-16T00:27:46.932511+00:00 app[web.1]:   Rendered layouts/_header.html.erb (39.5ms)
+2013-06-16T00:27:47.924859+00:00 app[web.1]: Started GET "/help" for 69.12.169.82 at 2013-06-16 00:27:47 +0000
+2013-06-16T00:27:47.957812+00:00 app[web.1]: Processing by StaticPagesController#help as HTML
+2013-06-16T00:27:47.973226+00:00 app[web.1]:   Rendered static_pages/help.html.erb within layouts/application (0.6ms)
+2013-06-16T00:27:47.974791+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.0ms)
+2013-06-16T00:27:47.994908+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.4ms)
+2013-06-16T00:27:47.994420+00:00 app[web.1]:   Rendered layouts/_header.html.erb (19.4ms)
+2013-06-16T00:27:47.995117+00:00 app[web.1]: Completed 200 OK in 37ms (Views: 34.5ms | ActiveRecord: 2.0ms)
+2013-06-16T00:27:48.017775+00:00 heroku[router]: at=info method=GET path=/help host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=1ms service=110ms status=200 bytes=2029
+2013-06-16T00:29:10.076619+00:00 app[web.1]: Processing by StaticPagesController#projects as HTML
+2013-06-16T00:29:10.077400+00:00 app[web.1]:   Rendered static_pages/projects.html.erb within layouts/application (0.1ms)
+2013-06-16T00:29:10.082495+00:00 app[web.1]: Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.8ms)
+2013-06-16T00:29:10.082705+00:00 heroku[router]: at=info method=GET path=/projects host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=1ms service=16ms status=304 bytes=0
+2013-06-16T00:29:10.073226+00:00 app[web.1]: Started GET "/projects" for 69.12.169.82 at 2013-06-16 00:29:10 +0000
+2013-06-16T00
+:29:10.082333+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.4ms)
+2013-06-16T00:29:10.078432+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.0ms)
+2013-06-16T00:29:10.081730+00:00 app[web.1]:   Rendered layouts/_header.html.erb (3.2ms)
+2013-06-16T00:29:10.196718+00:00 heroku[router]: at=info method=GET path=/assets/application-4688b026c98be21eda4ae4d3b325dc4e.css host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=1ms service=7ms status=304 bytes=0
+2013-06-16T00:29:10.575076+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=2ms service=8ms status=304 bytes=0
+2013-06-16T00:29:10.301722+00:00 heroku[router]: at=info method=GET path=/assets/application-d0b76fba7cc374d820029ae22be4dd22.js host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=3ms service=6ms status=304 bytes=0
+2013-06-16T00:41:22.735588+00:00 heroku[api]: Deploy 2eac93a by tummykung@gmail.com
+2013-06-16T00:41:22.762821+00:00 heroku[api]: Release v9 created by tummykung@gmail.com
+2013-06-16T00:41:22.808195+00:00 heroku[api]: Deploy 2eac93a by tummykung@gmail.com
+2013-06-16T00:41:23.172462+00:00 heroku[web.1]: State changed from up to starting
+2013-06-16T00:41:28.611617+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2013-06-16T00:41:29.706936+00:00 app[web.1]: [2013-06-16 00:41:29] ERROR SignalException: SIGTERM
+2013-06-16T00:41:29.706936+00:00 app[web.1]: 	/usr/local/lib/ruby/1.9.1/webrick/server.rb:90:in `select'
+2013-06-16T00:41:26.260066+00:00 heroku[web.1]: Starting process with command `bundle exec rails server -p 40027`
+2013-06-16T00:41:37.362839+00:00 heroku[web.1]: Error R12 (Exit timeout) -> At least one process failed to exit within 10 seconds of SIGTERM
+2013-06-16T00:41:37.363088+00:00 heroku[web.1]: Stopping remaining processes with SIGKILL
+2013-06-16T00:41:40.314209+00:00 heroku[web.1]: Process exited with status 137
+2013-06-16T00:41:35.546127+00:00 app[web.1]: DEPRECATION WARNING: You have Rails 2.3-style plugins in vendor/plugins! Support for these plugins will be removed in Rails 4.0. Move them out and bundle them in your Gemfile, or fold them in to your app as lib/myplugin/* and config/initializers/myplugin.rb. See the release notes for more on this: http://weblog.rubyonrails.org/2012/1/4/rails-3-2-0-rc2-has-been-released. (called from <top (required)> at /app/config/environment.rb:5)
+2013-06-16T00:41:35.545672+00:00 app[web.1]: DEPRECATION WARNING: You have Rails 2.3-style plugins in vendor/plugins! Support for these plugins will be removed in Rails 4.0. Move them out and bundle them in your Gemfile, or fold them in to your app as lib/myplugin/* and config/initializers/myplugin.rb. See the release notes for more on this: http://weblog.rubyonrails.org/2012/1/4/rails-3-2-0-rc2-has-been-released. (called from <top (required)> at /app/config/environment.rb:5)
+2013-06-16T00:41:45.919022+00:00 heroku[web.1]: State changed from starting to up
+2013-06-16T00:41:44.483721+00:00 app[web.1]: => Booting WEBrick
+2013-06-16T00:41:44.483721+00:00 app[web.1]: Connecting to database specified by DATABASE_URL
+2013-06-16T00:41:44.483721+00:00 app[web.1]: => Call with -d to detach
+2013-06-16T00:41:44.483721+00:00 app[web.1]: => Rails 3.2.11 application starting in production on http://0.0.0.0:40027
+2013-06-16T00:41:44.483721+00:00 app[web.1]: => Ctrl-C to shutdown server
+2013-06-16T00:41:45.825530+00:00 app[web.1]: [2013-06-16 00:41:45] INFO  WEBrick 1.3.1
+2013-06-16T00:41:45.825935+00:00 app[web.1]: [2013-06-16 00:41:45] INFO  WEBrick::HTTPServer#start: pid=2 port=40027
+2013-06-16T00:41:45.825530+00:00 app[web.1]: [2013-06-16 00:41:45] INFO  ruby 1.9.2 (2011-07-09) [x86_64-linux]
+2013-06-16T00:47:17.279140+00:00 app[web.1]: Started GET "/" for 69.12.169.82 at 2013-06-16 00:47:17 +0000
+2013-06-16T00:47:17.593152+00:00 app[web.1]: Processing by StaticPagesController#home as HTML
+2013-06-16T00:47:17.991259+00:00 app[web.1]: Completed 500 Internal Server Error in 398ms
+2013-06-16T00:47:17.995090+00:00 app[web.1]: 
+2013-06-16T00:47:17.995090+00:00 app[web.1]: ActiveRecord::StatementInvalid (PGError: ERROR:  relation "microposts" does not exist
+2013-06-16T00:47:17.995090+00:00 app[web.1]:               FROM pg_attribute a LEFT JOIN pg_attrdef d
+2013-06-16T00:47:17.995383+00:00 app[web.1]: 
+2013-06-16T00:47:17.995090+00:00 app[web.1]: :             SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+2013-06-16T00:47:17.995090+00:00 app[web.1]:                      pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+2013-06-16T00:47:17.995090+00:00 app[web.1]:                 ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+2013-06-16T00:47:17.995090+00:00 app[web.1]:                AND a.attnum > 0 AND NOT a.attisdropped
+2013-06-16T00:47:17.995383+00:00 app[web.1]:              ORDER BY a.attnum
+2013-06-16T00:47:17.995383+00:00 app[web.1]: 
+2013-06-16T00:47:17.995090+00:00 app[web.1]: LINE 5:              WHERE a.attrelid = '"microposts"'::regclass
+2013-06-16T00:47:17.995090+00:00 app[web.1]:                                         ^
+2013-06-16T00:47:17.995383+00:00 app[web.1]: ):
+2013-06-16T00:47:17.995090+00:00 app[web.1]:              WHERE a.attrelid = '"microposts"'::regclass
+2013-06-16T00:47:17.995383+00:00 app[web.1]:   app/controllers/static_pages_controller.rb:4:in `home'
+2013-06-16T00:47:17.998730+00:00 heroku[router]: at=info method=GET path=/ host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=2ms service=757ms status=500 bytes=643
+2013-06-16T00:47:18.331754+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=triptagg.herokuapp.com fwd="69.12.169.82" dyno=web.1 connect=3ms service=19ms status=200 bytes=0
