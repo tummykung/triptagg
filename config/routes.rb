@@ -17,7 +17,9 @@ Tryloop::Application.routes.draw do
 
   root                to: 'static_pages#home'
   match '/help',      to: 'static_pages#help'
-  match '/projects',  to: 'static_pages#projects'
+  match '/prepare',  to: 'static_pages#prepare'
+  match '/explore',  to: 'static_pages#explore'
+  match '/reflect',  to: 'static_pages#reflect'
   match '/about',     to: 'static_pages#about'
   match '/contact',   to: 'static_pages#contact'
   match '/signup',    to: 'users#new'
