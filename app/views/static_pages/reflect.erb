@@ -1,16 +1,18 @@
-<% provide(:title, '3. Reflect') %>
-<h1>Reflect</h1>
+<% provide(:title, '3. Reflect and Curate a Public Post') %>
+<h1>Reflect and Curate a Public Post</h1>
 
+<h3> Select the best of the aggregated content and collaborate to create 3 stories about their experience </h3>
 
-<% keywords = ["#hacktivateed", "#architect_frem01 "] %>
+<% keywords = ["#architect_frem01", "#hacktivateed"] %>
 
 <% keywords.each do |keyword| %>
 	<ol class="microposts">
-		<h2> Results for: <%= keyword %> </h2>
+		<h2> Search Results for: <%= keyword %> </h2>
 		
 		<% all_feed_items = Twitter.search(keyword, :count => 5, :result_type => "recent").results %>
 		<% all_feed_items.each do |status| %>
 			<li>
+				<%= link_to image_tag(status.user.profile_image_url), status.user.name %>
 				<span class="user">
 					<%= status.user.name %> 
 				</span>
