@@ -9,6 +9,9 @@
 #  updated_at :datetime         not null
 #
 
+require 'twitter-text'
+include Twitter::Autolink
+
 class Micropost < ActiveRecord::Base
 	attr_accessible :content
 	belongs_to :user 

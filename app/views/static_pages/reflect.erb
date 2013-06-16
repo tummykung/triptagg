@@ -14,8 +14,8 @@
 				<span class="user">
 					<%= status.user.name %> 
 				</span>
-				<span class="content"> 
-					<%= status.text %>
+				<span class="content">
+					<%= auto_link(status.text).html_safe %>
 				</span>
 				<span class="timestamp">
 					Posted <%= time_ago_in_words(status.created_at) %> ago.
