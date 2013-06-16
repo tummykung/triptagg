@@ -4,15 +4,17 @@
       <%= link_to image_tag("smallblacktriptagglogo.png", alt: "TripTagg"), root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home",    root_path %></li>
-          <li><%= link_to "1. Prepare", prepare_path %></li>
-          <li><%= link_to "2. Explore", explore_path %></li>
-          <li><%= link_to "3. Reflect", reflect_path %></li>
-          <li><%= link_to "Help",    help_path %></li>
+          <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Home",    root_path %></li>
+          <li class="<%= 'active' if current_page?(prepare_path) %>"><%= link_to "1. Prepare", prepare_path %></li>
+          <li class="<%= 'active' if current_page?(explore_path) %>"><%= link_to "2. Explore", explore_path %></li>
+          <li class="<%= 'active' if current_page?(reflect_path) %>"><%= link_to "3. Reflect", reflect_path %></li>
+          <li class="<%= 'active' if current_page?(help_path) %>"><%= link_to "Help",    help_path %></li>
           <% if signed_in? %>
-            <li><%= link_to "Users", users_path %></li>
+            <li class="<%= 'active' if current_page?(users_path) %>"><%= link_to "Users", users_path %></li>
             
-            <li id="fat-menu" class="dropdown">
+            <li id="fat-menu" class="dropdown <%= 'active' if 
+                    current_page?(current_user) or
+                    current_page?(edit_user_path(current_user)) %>">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
               </a>
